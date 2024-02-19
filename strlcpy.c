@@ -1,18 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   strlcpy.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ewoillar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/19 16:31:38 by ewoillar          #+#    #+#             */
-/*   Updated: 2024/02/19 16:34:39 by ewoillar         ###   ########.fr       */
+/*   Created: 2024/02/19 18:10:01 by ewoillar          #+#    #+#             */
+/*   Updated: 2024/02/19 18:21:27 by ewoillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+unsigned int	ft_strlcpy(char *dest, const char *src, unsigned int size)
+{
+	unsigned int	i;
+	unsigned int	count;
 
-void	ft_bzero(void *s, int n);
-
-#endif
+	i = 0;
+	count = 0;
+	while (str[count])
+		count++;
+	if (size < 1)
+		return (count);
+	while (src[i] && i < size - 1)
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (count);
+}

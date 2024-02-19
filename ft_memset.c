@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ewoillar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/19 16:31:38 by ewoillar          #+#    #+#             */
-/*   Updated: 2024/02/19 16:34:39 by ewoillar         ###   ########.fr       */
+/*   Created: 2024/02/19 13:44:43 by ewoillar          #+#    #+#             */
+/*   Updated: 2024/02/19 16:40:34 by ewoillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+void	*ft_memset(void *s, int c, unsigned int n)
+{
+	unsigned char	*p;
 
-void	ft_bzero(void *s, int n);
-
-#endif
+	p = s;
+	while (n > 0)
+	{
+		*p = c;
+		p++;
+		n--;
+	}
+	return (s);
+}

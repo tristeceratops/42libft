@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ewoillar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/19 16:31:38 by ewoillar          #+#    #+#             */
-/*   Updated: 2024/02/19 16:34:39 by ewoillar         ###   ########.fr       */
+/*   Created: 2024/02/19 13:34:15 by ewoillar          #+#    #+#             */
+/*   Updated: 2024/02/19 13:36:21 by ewoillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+int	ft_isprint(int c)
+{
+	int	ret_value;
 
-void	ft_bzero(void *s, int n);
-
-#endif
+	ret_value = 0;
+	if (c >= 32 && c <= 126)
+		ret_value = 1;
+	return (ret_value);
+}

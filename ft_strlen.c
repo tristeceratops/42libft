@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ewoillar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/19 16:31:38 by ewoillar          #+#    #+#             */
-/*   Updated: 2024/02/19 16:34:39 by ewoillar         ###   ########.fr       */
+/*   Created: 2024/02/19 13:37:34 by ewoillar          #+#    #+#             */
+/*   Updated: 2024/02/19 16:44:24 by ewoillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+unsigned int	ft_strlen(const char *s)
+{
+	unsigned int	len;
 
-void	ft_bzero(void *s, int n);
-
-#endif
+	len = 0;
+	while (s[len] != '\0')
+		len++;
+	return (len);
+}
