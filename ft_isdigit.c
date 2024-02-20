@@ -6,11 +6,11 @@
 /*   By: ewoillar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 12:41:39 by ewoillar          #+#    #+#             */
-/*   Updated: 2024/02/19 12:43:10 by ewoillar         ###   ########.fr       */
+/*   Updated: 2024/02/20 18:15:04 by ewoillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	isdigit(int c)
+int	ft_isdigit(int c)
 {
 	int	ret_value;
 

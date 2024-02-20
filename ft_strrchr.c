@@ -1,44 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ewoillar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/19 15:45:45 by ewoillar          #+#    #+#             */
-/*   Updated: 2024/02/20 14:52:50 by ewoillar         ###   ########.fr       */
+/*   Created: 2024/02/20 13:42:04 by ewoillar          #+#    #+#             */
+/*   Updated: 2024/02/20 14:12:19 by ewoillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	*ft_memmove(void *dest, const void *src, unsigned int n)
+char	*ft_strrchr(const char *s, int c)
 {
-	unsigned char		*d;
-	const unsigned char	*s;
+	const char	*save;
 
-	d = dest;
-	s = src;
-	if (dest <= src)
+	save = 0;
+	while (*s)
 	{
-		while (n--)
-			*d++ = *s++;
+		if (*s == c)
+			save = s;
+		s++;
 	}
-	else if (dest > src)
-	{
-		d += n - 1;
-		s += n - 1;
-		while (n--)
-			*d-- = *s--;
-	}
-	return (dest);
+	return ((char *)save);
 }
 /*
 #include <stdio.h>
+#include <string.h>
 
 int	main(void)
 {
-	char	s[50] = "ABCDEFGHIJKL";
-	ft_memmove(s + 1, s + 4, 2);
-	printf("%s\n", s);
+	char	*s = "Salut ici on est à 42 !";
+	char	c = 'z';
+
+	printf("%s\n", strrchr(s, c));
+	printf("%s\n", ft_strrchr(s, c));
 }*/

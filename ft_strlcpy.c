@@ -1,44 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ewoillar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/19 15:45:45 by ewoillar          #+#    #+#             */
-/*   Updated: 2024/02/20 14:52:50 by ewoillar         ###   ########.fr       */
+/*   Created: 2024/02/19 18:10:01 by ewoillar          #+#    #+#             */
+/*   Updated: 2024/02/20 13:53:47 by ewoillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	*ft_memmove(void *dest, const void *src, unsigned int n)
+unsigned int	ft_strlcpy(char *dest, const char *src, unsigned int size)
 {
-	unsigned char		*d;
-	const unsigned char	*s;
+	unsigned int	i;
+	unsigned int	count;
 
-	d = dest;
-	s = src;
-	if (dest <= src)
+	i = 0;
+	count = 0;
+	while (src[count])
+		count++;
+	if (size < 1)
+		return (count);
+	while (src[i] && i < size - 1)
 	{
-		while (n--)
-			*d++ = *s++;
+		dest[i] = src[i];
+		i++;
 	}
-	else if (dest > src)
-	{
-		d += n - 1;
-		s += n - 1;
-		while (n--)
-			*d-- = *s--;
-	}
-	return (dest);
+	dest[i] = '\0';
+	return (count);
 }
 /*
 #include <stdio.h>
 
 int	main(void)
 {
-	char	s[50] = "ABCDEFGHIJKL";
-	ft_memmove(s + 1, s + 4, 2);
-	printf("%s\n", s);
+	char test[50] = "Hello";
+
+	char *dest = "";
+	printf("%s\n", dest);
+	unsigned int i = ft_strlcpy(dest, test, 0);
+	printf("%s\n", dest);
+	printf("%d\n", i);
 }*/

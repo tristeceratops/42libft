@@ -1,44 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ewoillar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/19 15:45:45 by ewoillar          #+#    #+#             */
-/*   Updated: 2024/02/20 14:52:50 by ewoillar         ###   ########.fr       */
+/*   Created: 2024/02/20 16:12:52 by ewoillar          #+#    #+#             */
+/*   Updated: 2024/02/20 16:42:26 by ewoillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	*ft_memmove(void *dest, const void *src, unsigned int n)
+int	ft_atoi(const char *nptr)
 {
-	unsigned char		*d;
-	const unsigned char	*s;
+	int	result;
+	int	sign;
 
-	d = dest;
-	s = src;
-	if (dest <= src)
+	result = 0;
+	sign = 1;
+	while (*nptr == ' ' || *nptr == '\t' || *nptr == '\n'|| *nptr == '\v' || *nptr == '\f' || *nptr == '\r')
+		nptr++;
+	if (*nptr == '-')
 	{
-		while (n--)
-			*d++ = *s++;
+		sign = -1;
+		nptr++;
 	}
-	else if (dest > src)
+	else if (*nptr == '+')
+		nptr++;
+	while (*nptr >= '0' && *nptr <= '9')
 	{
-		d += n - 1;
-		s += n - 1;
-		while (n--)
-			*d-- = *s--;
+		result = result * 10 + (*nptr - '0');
+		nptr++;
 	}
-	return (dest);
+	return (sign * result);
 }
-/*
-#include <stdio.h>
-
-int	main(void)
-{
-	char	s[50] = "ABCDEFGHIJKL";
-	ft_memmove(s + 1, s + 4, 2);
-	printf("%s\n", s);
-}*/

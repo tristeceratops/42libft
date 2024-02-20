@@ -1,44 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ewoillar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/19 15:45:45 by ewoillar          #+#    #+#             */
-/*   Updated: 2024/02/20 14:52:50 by ewoillar         ###   ########.fr       */
+/*   Created: 2024/02/20 14:23:01 by ewoillar          #+#    #+#             */
+/*   Updated: 2024/02/20 18:16:58 by ewoillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	*ft_memmove(void *dest, const void *src, unsigned int n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	unsigned char		*d;
-	const unsigned char	*s;
+	const unsigned char	*p;
+	unsigned char		uc;
 
-	d = dest;
-	s = src;
-	if (dest <= src)
+	p = s;
+	uc = c;
+	while (n-- > 0)
 	{
-		while (n--)
-			*d++ = *s++;
+		if (*p == uc)
+			return ((void *)p);
+		p++;
 	}
-	else if (dest > src)
-	{
-		d += n - 1;
-		s += n - 1;
-		while (n--)
-			*d-- = *s--;
-	}
-	return (dest);
+	return (0);
 }
 /*
 #include <stdio.h>
+#include <string.h>
 
 int	main(void)
 {
-	char	s[50] = "ABCDEFGHIJKL";
-	ft_memmove(s + 1, s + 4, 2);
-	printf("%s\n", s);
+	char	*s = "Le roi des pirates, ce sera moi";
+	char	c = 'd';
+	unsigned int	n = 6;
+
+	printf("%s\n",(char *)memchr(s, c, n));
+	printf("%s\n", (char *)ft_memchr(s, c, n));
 }*/
