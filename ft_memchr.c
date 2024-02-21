@@ -6,9 +6,11 @@
 /*   By: ewoillar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 14:23:01 by ewoillar          #+#    #+#             */
-/*   Updated: 2024/02/20 18:16:58 by ewoillar         ###   ########.fr       */
+/*   Updated: 2024/02/21 11:40:40 by ewoillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {

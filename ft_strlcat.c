@@ -6,7 +6,7 @@
 /*   By: ewoillar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 10:21:34 by ewoillar          #+#    #+#             */
-/*   Updated: 2024/02/20 13:55:28 by ewoillar         ###   ########.fr       */
+/*   Updated: 2024/02/21 11:20:41 by ewoillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 #include <stdio.h>
 #include <bsd/string.h>
 */
-unsigned int	ft_strlcat(char *dst, const char *src, unsigned int size)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	unsigned int	dst_size;
-	unsigned int	src_size;
+	size_t	dst_size;
+	size_t	src_size;
 
 	dst_size = 0;
 	src_size = ft_strlen(src);

@@ -6,7 +6,7 @@
 /*   By: ewoillar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 12:46:30 by ewoillar          #+#    #+#             */
-/*   Updated: 2024/02/19 12:48:50 by ewoillar         ###   ########.fr       */
+/*   Updated: 2024/02/21 14:38:23 by ewoillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_isalnum(int c)
 	ret_value = 0;
 	if (c >= 48 && c <= 57)
 		ret_value = 1;
-	if (c >= 67 && c <= 90)
+	if (c >= 65 && c <= 90)
 		ret_value = 1;
 	if (c >= 97 && c <= 122)
 		ret_value = 1;

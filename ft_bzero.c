@@ -6,19 +6,13 @@
 /*   By: ewoillar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 14:12:09 by ewoillar          #+#    #+#             */
-/*   Updated: 2024/02/19 16:40:15 by ewoillar         ###   ########.fr       */
+/*   Updated: 2024/02/21 14:17:32 by ewoillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_bzero(void *s, unsigned int n)
-{
-	unsigned char	*p;
+#include "libft.h"
 
-	p = s;
-	while (n > 0)
-	{
-		*p = '\0';
-		p++;
-		n--;
-	}
+void	ft_bzero(void *s, size_t n)
+{
+	ft_memset(s, 0, n);
 }

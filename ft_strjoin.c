@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ewoillar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/20 14:12:52 by ewoillar          #+#    #+#             */
-/*   Updated: 2024/02/21 11:31:04 by ewoillar         ###   ########.fr       */
+/*   Created: 2024/02/21 18:34:06 by ewoillar          #+#    #+#             */
+/*   Updated: 2024/02/21 18:58:14 by ewoillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int	ret_value;
+	size_t	size;
+	char	*str;
 
-	ret_value = 0;
-	while ((n > 0) && (*s1 || *s2))
-	{
-		if (*s1 != *s2)
-		{
-			ret_value = *s1 - *s2;
-			break ;
-		}
-		s1++;
-		s2++;
-		n--;
-	}
-	return (ret_value);
+	size = ft_strlen(s1) + ft_strlen(s2) + 1;
+	str = ft_calloc(size, sizeof(char));
+	if (!str)
+		return (0);
+	if (ft_strlen(s1) > 0)
+		ft_strlcat(str, s1, size);
+	if (ft_strlen(s2) > 0)
+		ft_strlcat(str, s2, size);
+	return (str);
 }
