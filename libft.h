@@ -3,18 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ewoillar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ewoillar <ewoillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 16:31:38 by ewoillar          #+#    #+#             */
-/*   Updated: 2024/02/26 11:26:57 by ewoillar         ###   ########.fr       */
+/*   Updated: 2024/04/26 11:04:37 by ewoillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 # include <stdlib.h>
 # include <stdint.h>
 # include <unistd.h>
+# include <stdarg.h>
 
 typedef struct s_list
 {
@@ -56,6 +60,7 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+// bonus
 t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);
@@ -65,4 +70,21 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+// ft_printf
+int		ft_printf(const char *str, ...);
+int		ft_printf_char(va_list arg);
+int		ft_printf_dec(va_list arg);
+int		ft_printf_unsigned_dec(va_list arg);
+int		ft_printf_str(va_list arg);
+int		ft_printf_hex(va_list arg, char *base);
+int		ft_printf_ptr(va_list arg);
+int		print_hex(char *base, unsigned long long u);
+// get_next_line
+char	*get_next_line(int fd);
+char	*get_line(char **remainder);
+int		has_newline(char *str);
+char	*gnl_ft_strjoin(char *s1, char *s2);
+char	*gnl_ft_strdup(const char *s);
+char	*gnl_ft_substr(char const *s, unsigned int start, size_t len);
+char	*get_line_null(char **remainder, char **line);
 #endif
