@@ -6,7 +6,7 @@
 /*   By: ewoillar <ewoillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 11:26:13 by ewoillar          #+#    #+#             */
-/*   Updated: 2024/10/17 10:57:00 by ewoillar         ###   ########.fr       */
+/*   Updated: 2024/10/18 15:14:13 by ewoillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int	is_in_set(char c, char const *set)
 	return (0);
 }
 
-static char	*trim_left(char const *s, char const *set)
+char	*trim_left(char const *s, char const *set)
 {
 	size_t	start;
 
@@ -33,7 +33,7 @@ static char	*trim_left(char const *s, char const *set)
 	return ((char *)&s[start]);
 }
 
-static char	*trim_right(char const *s, char const *set)
+char	*trim_right(char const *s, char const *set)
 {
 	size_t	len;
 	char	*trimmed_str;
