@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   gc_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ewoillar <ewoillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 14:05:42 by ewoillar          #+#    #+#             */
-/*   Updated: 2024/10/21 11:14:29 by ewoillar         ###   ########.fr       */
+/*   Updated: 2024/10/21 11:17:11 by ewoillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static int	free_2dtable(char **array, int curr_index)
 	return (0);
 }
 
-static int	split_words(char **array, char const *str, char charset)
+static int	split_words(char **array, char const *str, char charset, t_alloc *mem)
 {
 	int	i;
 	int	j;
@@ -64,7 +64,7 @@ static int	split_words(char **array, char const *str, char charset)
 			j = 0;
 			while (check_sep(str[i + j], charset) == 0)
 				j++;
-			array[word] = (char *)malloc(sizeof(char) * (j + 1));
+			array[word] = (char *)gc_malloc(sizeof(char) * (j + 1), mem);
 			if (!array)
 				return (free_2dtable(array, word));
 			copy_word(array[word], str + i, charset);
@@ -75,7 +75,7 @@ static int	split_words(char **array, char const *str, char charset)
 	return (1);
 }
 
-char	**ft_split(char const *s, char c)
+char	**gc_split(char const *s, char c, t_alloc *mem)
 {
 	char	**array;
 	int		words;
@@ -88,14 +88,14 @@ char	**ft_split(char const *s, char c)
 	while (s[++i] != '\0')
 		if (check_sep(s[i + 1], c) == 1 && check_sep(s[i], c) == 0)
 			words++;
-	array = (char **)malloc(sizeof(char *) * (words + 1));
+	array = (char **)gc_malloc(sizeof(char *) * (words + 1), mem);
 	if (!array)
 	{
 		free(array);
 		return (0);
 	}
 	array[words] = 0;
-	if (!split_words(array, s, c))
+	if (!split_words(array, s, c, mem))
 	{
 		free(array);
 		return (0);

@@ -6,7 +6,7 @@
 /*   By: ewoillar <ewoillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 16:31:38 by ewoillar          #+#    #+#             */
-/*   Updated: 2024/10/18 15:43:15 by ewoillar         ###   ########.fr       */
+/*   Updated: 2024/10/21 11:19:34 by ewoillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,12 @@ void		gc_free(void *adress, t_alloc **mem);
 void		gc_free_all(t_alloc **mem);
 void		insert_alloc(void *ptr, t_alloc **mem);
 void		*gc_malloc(int size, t_alloc **mem);
+void		*gc_calloc(size_t nmemb, size_t size, t_alloc *mem);
+char		*gc_strjoin(char const *s1, char const *s2, t_alloc *mem);
+char		**gc_split(char const *s, char c, t_alloc *mem);
+char		*gc_strdup(const char *s, t_alloc *mem);
+char		*gc_itoa(int n, t_alloc *mem);
+
 //other
 int			ft_isspace(char c);
 
