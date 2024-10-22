@@ -6,7 +6,7 @@
 /*   By: ewoillar <ewoillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 16:01:59 by ewoillar          #+#    #+#             */
-/*   Updated: 2024/10/22 17:01:57 by ewoillar         ###   ########.fr       */
+/*   Updated: 2024/10/22 17:09:57 by ewoillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ char	*loop(char *remainder[1024], char *buffer, int fd)
 		buffer[bytes_read] = '\0';
 		printf("buffer: %s\n", buffer);
 		printf("remainder: %s\n", remainder[fd]);
+		printf("bytes_read: %d\n", bytes_read);
 		remainder[fd] = ft_strjoin(remainder[fd], buffer);
 	}
 	if (bytes_read == 0 && !remainder[fd])
