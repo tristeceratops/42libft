@@ -17,7 +17,7 @@ SRC_FILES := ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
 
 B_FILES := ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
 
-GC_FILES := gc_malloc.c
+GC_FILES := gc_malloc.c gc_calloc.c gc_itoa.c gc_split.c gc_strdup.c gc_strjoin.c
 GNL_FILES := get_next_line.c get_next_line_utils.c
 PRINTF_FILES := ft_printf.c ft_printf_dec.c ft_printf_char.c ft_printf_hex.c ft_printf_str.c ft_printf_unsigned_dec.c ft_printf_ptr.c
 
