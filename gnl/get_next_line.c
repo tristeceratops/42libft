@@ -6,7 +6,7 @@
 /*   By: ewoillar <ewoillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 16:01:59 by ewoillar          #+#    #+#             */
-/*   Updated: 2024/10/23 12:33:20 by ewoillar         ###   ########.fr       */
+/*   Updated: 2024/10/23 16:45:05 by ewoillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ char	*get_line_null(char **remainder, char **line)
 
 char	*loop(char *remainder[1024], char *buffer, int fd)
 {
-	int	bytes_read;
+	int		bytes_read;
+	char	*temp;
 
 	bytes_read = 1;
 	while (!has_newline(remainder[fd]) && bytes_read > 0)
@@ -36,12 +37,14 @@ char	*loop(char *remainder[1024], char *buffer, int fd)
 			return (NULL);
 		}
 		buffer[bytes_read] = '\0';
-		remainder[fd] = ft_strjoin(remainder[fd], buffer);
-		if (!remainder[fd])
+		temp = ft_strjoin(remainder[fd], buffer);
+		if (!temp)
 		{
 			free(buffer);
 			return (NULL);
 		}
+		free(remainder[fd]);
+		remainder[fd] = temp;
 	}
 	if (bytes_read == 0 && (!remainder[fd] || !*remainder[fd]))
 	{
