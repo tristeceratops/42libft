@@ -6,7 +6,7 @@
 /*   By: ewoillar <ewoillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 14:42:42 by ewoillar          #+#    #+#             */
-/*   Updated: 2024/10/23 14:14:30 by ewoillar         ###   ########.fr       */
+/*   Updated: 2024/10/23 14:16:25 by ewoillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	gc_free(void *adress, t_alloc **mem)
 
 void	gc_free_all(t_alloc **mem)
 {
+	printf("free all\n");
 	while ((*mem)->next != NULL)
 		gc_free((*mem)->adress, mem);
 	gc_free((*mem)->adress, mem);
