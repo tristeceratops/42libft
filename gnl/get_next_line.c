@@ -6,7 +6,7 @@
 /*   By: ewoillar <ewoillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 16:01:59 by ewoillar          #+#    #+#             */
-/*   Updated: 2024/10/22 17:29:00 by ewoillar         ###   ########.fr       */
+/*   Updated: 2024/10/23 12:33:20 by ewoillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,8 @@ char	*get_next_line(int fd)
 	buffer = malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!buffer)
 		return (NULL);
-	if (!remainder[fd])
-		remainder[fd] = ft_strdup("");
+	//if (!remainder[fd])
+	//	remainder[fd] = ft_strdup("");
 	buffer = loop(remainder, buffer, fd);
 	if (buffer == NULL)
 	{
