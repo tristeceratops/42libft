@@ -6,7 +6,7 @@
 /*   By: ewoillar <ewoillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 14:05:42 by ewoillar          #+#    #+#             */
-/*   Updated: 2024/10/21 11:17:11 by ewoillar         ###   ########.fr       */
+/*   Updated: 2024/10/23 13:29:21 by ewoillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static int	split_words(char **array, char const *str, char charset, t_alloc *mem
 			j = 0;
 			while (check_sep(str[i + j], charset) == 0)
 				j++;
-			array[word] = (char *)gc_malloc(sizeof(char) * (j + 1), mem);
+			array[word] = (char *)gc_malloc(sizeof(char) * (j + 1), &mem);
 			if (!array)
 				return (free_2dtable(array, word));
 			copy_word(array[word], str + i, charset);
@@ -88,7 +88,7 @@ char	**gc_split(char const *s, char c, t_alloc *mem)
 	while (s[++i] != '\0')
 		if (check_sep(s[i + 1], c) == 1 && check_sep(s[i], c) == 0)
 			words++;
-	array = (char **)gc_malloc(sizeof(char *) * (words + 1), mem);
+	array = (char **)gc_malloc(sizeof(char *) * (words + 1), &mem);
 	if (!array)
 	{
 		free(array);
