@@ -6,7 +6,7 @@
 /*   By: ewoillar <ewoillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 18:34:06 by ewoillar          #+#    #+#             */
-/*   Updated: 2024/10/23 14:00:48 by ewoillar         ###   ########.fr       */
+/*   Updated: 2024/10/23 14:03:58 by ewoillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*gc_strjoin(char const *s1, char const *s2, t_alloc **mem)
 	char	*str;
 
 	size = ft_strlen(s1) + ft_strlen(s2) + 1;
-	str = gc_calloc(size, sizeof(char), &mem);
+	str = gc_calloc(size, sizeof(char), mem);
 	if (!str)
 		return (0);
 	if (ft_strlen(s1) > 0)
