@@ -6,7 +6,7 @@
 /*   By: ewoillar <ewoillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:34:27 by ewoillar          #+#    #+#             */
-/*   Updated: 2024/10/23 13:30:26 by ewoillar         ###   ########.fr       */
+/*   Updated: 2024/10/23 14:00:06 by ewoillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static char	*int_to_str(long n, char *str, int length)
 	return (str);
 }
 
-char	*gc_itoa(int n, t_alloc *mem)
+char	*gc_itoa(int n, t_alloc **mem)
 {
 	int		length;
 	long	temp;
@@ -59,12 +59,12 @@ char	*gc_itoa(int n, t_alloc *mem)
 
 	if (n == 0)
 	{
-		str = (char *)gc_calloc(2, sizeof(char), mem);
+		str = (char *)gc_calloc(2, sizeof(char), &mem);
 		str[0] = '0';
 		return (str);
 	}
 	length = calc_lenth(n);
-	str = (char *)gc_calloc((length + 1), sizeof(char), mem);
+	str = (char *)gc_calloc((length + 1), sizeof(char), &mem);
 	temp = n;
 	if (!str)
 		return (0);
