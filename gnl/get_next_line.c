@@ -6,7 +6,7 @@
 /*   By: ewoillar <ewoillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 16:01:59 by ewoillar          #+#    #+#             */
-/*   Updated: 2024/10/23 16:45:05 by ewoillar         ###   ########.fr       */
+/*   Updated: 2024/10/23 17:11:39 by ewoillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ char	*loop(char *remainder[1024], char *buffer, int fd)
 	if (bytes_read == 0 && (!remainder[fd] || !*remainder[fd]))
 	{
 		free(buffer);
+		free(remainder[fd]);
+		remainder[fd] = NULL;
 		return (NULL);
 	}
 	return (buffer);
