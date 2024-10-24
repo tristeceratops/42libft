@@ -6,7 +6,7 @@
 /*   By: ewoillar <ewoillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 16:01:59 by ewoillar          #+#    #+#             */
-/*   Updated: 2024/10/23 17:11:39 by ewoillar         ###   ########.fr       */
+/*   Updated: 2024/10/24 15:02:53 by ewoillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,29 +22,33 @@ char	*get_line_null(char **remainder, char **line)
 	return (*line);
 }
 
+char	*update_remainder(char *remainder, char *buffer)
+{
+	char	*temp;
+
+	temp = ft_strjoin(remainder, buffer);
+	if (!temp)
+	{
+		free(buffer);
+		return (NULL);
+	}
+	free(remainder);
+	return (temp);
+}
+
 char	*loop(char *remainder[1024], char *buffer, int fd)
 {
-	int		bytes_read;
-	char	*temp;
+	int	bytes_read;
 
 	bytes_read = 1;
 	while (!has_newline(remainder[fd]) && bytes_read > 0)
 	{
-		bytes_read = read(fd, buffer, BUFFER_SIZE);
+		bytes_read = read_from_file(fd, buffer);
 		if (bytes_read < 0)
-		{
-			free(buffer);
 			return (NULL);
-		}
-		buffer[bytes_read] = '\0';
-		temp = ft_strjoin(remainder[fd], buffer);
-		if (!temp)
-		{
-			free(buffer);
+		remainder[fd] = update_remainder(remainder[fd], buffer);
+		if (!remainder[fd])
 			return (NULL);
-		}
-		free(remainder[fd]);
-		remainder[fd] = temp;
 	}
 	if (bytes_read == 0 && (!remainder[fd] || !*remainder[fd]))
 	{
@@ -67,8 +71,6 @@ char	*get_next_line(int fd)
 	buffer = malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!buffer)
 		return (NULL);
-	//if (!remainder[fd])
-	//	remainder[fd] = ft_strdup("");
 	buffer = loop(remainder, buffer, fd);
 	if (buffer == NULL)
 	{

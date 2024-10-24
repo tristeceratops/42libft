@@ -6,7 +6,7 @@
 /*   By: ewoillar <ewoillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 14:05:42 by ewoillar          #+#    #+#             */
-/*   Updated: 2024/10/23 14:00:33 by ewoillar         ###   ########.fr       */
+/*   Updated: 2024/10/24 14:02:09 by ewoillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static int	free_2dtable(char **array, int curr_index)
 	return (0);
 }
 
-static int	split_words(char **array, char const *str, char charset, t_alloc **mem)
+static int	sw(char **array, char const *str, char charset, t_alloc **mem)
 {
 	int	i;
 	int	j;
@@ -95,7 +95,7 @@ char	**gc_split(char const *s, char c, t_alloc **mem)
 		return (0);
 	}
 	array[words] = 0;
-	if (!split_words(array, s, c, mem))
+	if (!sw(array, s, c, mem))
 	{
 		free(array);
 		return (0);
